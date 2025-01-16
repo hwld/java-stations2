@@ -10,12 +10,28 @@ public class Station8 {
     }
 
     public static HashSet<String> aggregateUserId(ArrayList<Order> orders) {
-        // 問題1: ここから
-        // 問題1: ここまで
+        HashSet<String> userIdSet = new HashSet<>();
+
+        for (Order order : orders) {
+            userIdSet.add(order.userId);
+        }
+
+        return userIdSet;
     }
 
     public static HashMap<String, Integer> aggregateUserAndTotalPrice(ArrayList<Order> orders) {
-        // 問題2: ここから
-        // 問題2: ここまで
+        HashMap<String, Integer> userAndTotalPrices = new HashMap<>();
+
+        for (Order order : orders) {
+            Integer subtotalPrice = userAndTotalPrices.get(order.userId);
+
+            if (subtotalPrice == null) {
+                userAndTotalPrices.put(order.userId, order.totalPrice);
+            } else {
+                userAndTotalPrices.put(order.userId, subtotalPrice + order.totalPrice);
+            }
+        }
+
+        return userAndTotalPrices;
     }
 }

@@ -8,12 +8,13 @@ public class Station1 {
     }
 
     public static ArrayList<String> q1() {
-        // 問題1: ここから
-        // 問題1: ここまで
+        ArrayList<String> list = new ArrayList<>();
+        list.add("Tech");
+        list.add("Train");
+        return list;
     }
 
     public static int q2(ArrayList<String> list, ArrayList<String> searchWords) {
-        // 問題2: ここから
-        // 問題2: ここまで
+        return (int) searchWords.stream().filter(list::contains).count();
     }
 }
